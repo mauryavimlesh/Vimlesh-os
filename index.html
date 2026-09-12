@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0b0d">
+<title>VIMLESH OS</title>
+<link rel="manifest" href="manifest.json">
+<style>
+:root{--bg:#09090b;--panel:#141416;--panel2:#1b1b1f;--text:#f5f5f5;--muted:#8f9098;--line:#292a2f;--accent:#b8ff4d;--accent2:#8be43b;--danger:#ff655f;--radius:24px}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+body{min-height:100vh;padding-bottom:88px}.app{max-width:980px;margin:auto;padding:18px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:22px}.brand{font-weight:900;letter-spacing:1.5px;font-size:17px}.date{color:var(--muted);font-size:12px}.iconbtn,.navbtn{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:16px;padding:11px 13px;cursor:pointer}
+.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:14px;margin-bottom:16px}.heroCard,.stat{background:linear-gradient(145deg,#18181b,#101012);border:1px solid var(--line);border-radius:28px;padding:22px;box-shadow:0 14px 45px #0006}
+.kicker{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:1.6px}.hello{font-size:32px;font-weight:850;margin:7px 0}.quote{color:#a9a9b0;font-size:15px}.ring{width:104px;height:104px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--accent) calc(var(--p)*1%),#2a2b2e 0);margin:auto;position:relative}.ring:after{content:"";position:absolute;inset:9px;border-radius:50%;background:#111113}.ring b{position:relative;z-index:2;font-size:23px}.progressWrap{display:flex;align-items:center;gap:20px}
+.section{margin:18px 0}.sectionHead{display:flex;justify-content:space-between;align-items:end;margin-bottom:10px}.section h2{font-size:17px;margin:0}.sectionHead small{color:var(--muted)}
+.habits{display:grid;gap:12px}.habit{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:15px 16px;display:flex;align-items:center;gap:14px}.habit.done{border-color:#365c18;background:linear-gradient(120deg,#131a10,#151516)}.habitIcon{width:44px;height:44px;border-radius:15px;display:grid;place-items:center;background:#222328;font-size:21px}.habitMain{flex:1}.habitName{font-weight:750}.habitMeta{color:var(--muted);font-size:12px;margin-top:3px}.check{width:38px;height:38px;border-radius:14px;border:1px solid #3a3b40;background:#1c1d20;color:transparent;font-size:20px;cursor:pointer}.done .check{background:var(--accent);color:#0c0d0c;border-color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.card{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:17px}.big{font-size:28px;font-weight:850;margin:5px 0}.muted{color:var(--muted);font-size:12px}.bar{height:7px;background:#292a2e;border-radius:99px;overflow:hidden;margin-top:12px}.bar i{display:block;height:100%;background:var(--accent);border-radius:99px}
+.heat{display:grid;grid-template-columns:repeat(14,1fr);gap:5px}.cell{aspect-ratio:1;border-radius:4px;background:#202126}.cell.l1{background:#344a27}.cell.l2{background:#5e8d35}.cell.l3{background:#8fcf46}.cell.l4{background:var(--accent)}
+.calendar{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:16px}.calhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}.calgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}.dow,.day{padding:7px;text-align:center;font-size:12px}.dow{color:var(--muted)}.day{min-height:38px;border-radius:12px;background:#191a1d;cursor:pointer}.day.today{outline:2px solid var(--accent)}.day.active{background:#334a22}.day small{display:block;color:var(--muted);font-size:9px}
+.workout{background:linear-gradient(145deg,#15200f,#111214);border:1px solid #36551f;border-radius:24px;padding:18px}.workoutTop{display:flex;justify-content:space-between}.pill{padding:7px 10px;border-radius:999px;background:#263a18;color:var(--accent);font-size:11px;font-weight:750}.exercise{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:12px 0;border-bottom:1px solid #293123}.exercise:last-child{border-bottom:0}.exercise button{border:1px solid #3c4d30;background:#172013;color:var(--text);border-radius:11px;padding:7px 9px}.exercise.done{text-decoration:line-through;color:#71756d}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#111113ee;backdrop-filter:blur(18px);border-top:1px solid var(--line);display:flex;justify-content:center;z-index:5}.nav{width:min(700px,100%);display:grid;grid-template-columns:repeat(4,1fr);padding:9px 12px calc(9px + env(safe-area-inset-bottom));gap:6px}.navbtn{border:0;background:transparent;color:var(--muted);font-size:11px}.navbtn.active{color:var(--text);background:#202125}.fab{position:fixed;right:20px;bottom:92px;width:54px;height:54px;border:0;border-radius:18px;background:var(--accent);color:#0b0c0a;font-size:26px;box-shadow:0 10px 35px #0008;cursor:pointer}
+.modal{position:fixed;inset:0;background:#0009;backdrop-filter:blur(8px);display:none;align-items:end;justify-content:center;z-index:20}.modal.show{display:flex}.sheet{background:#171719;border:1px solid var(--line);width:min(560px,100%);border-radius:28px 28px 0 0;padding:22px}.input{width:100%;background:#0f1012;border:1px solid var(--line);color:var(--text);padding:14px;border-radius:15px;margin:7px 0 12px}.primary{width:100%;padding:14px;border:0;border-radius:16px;background:var(--accent);font-weight:850;cursor:pointer}
+.toast{position:fixed;top:18px;left:50%;transform:translateX(-50%) translateY(-20px);opacity:0;background:#f5f5f5;color:#111;padding:10px 15px;border-radius:999px;font-size:12px;transition:.25s;z-index:30}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(max-width:700px){.app{padding:14px}.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.hello{font-size:28px}.heat{grid-template-columns:repeat(14,1fr);gap:3px}.card{padding:14px}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div class="bottom"><div class="nav">
+<button class="navbtn active" onclick="show('home')">⌂<br>HOME</button>
+<button class="navbtn" onclick="show('calendar')">▦<br>CALENDAR</button>
+<button class="navbtn" onclick="show('stats')">⌁<br>PROGRESS</button>
+<button class="navbtn" onclick="show('settings')">⚙<br>MORE</button>
+</div></div>
+<button class="fab" onclick="openHabit()">+</button>
+<div class="modal" id="modal"><div class="sheet">
+<h2 id="modalTitle">Add habit</h2>
+<label class="muted">Habit name</label><input id="habitName" class="input" placeholder="e.g. Read 20 pages">
+<label class="muted">Icon</label><input id="habitIcon" class="input" placeholder="📖">
+<button class="primary" onclick="saveHabit()">Create habit</button>
+</div></div><div id="toast" class="toast"></div>
+<script>
+const key='vimleshOS_v1';
+let state=JSON.parse(localStorage.getItem(key)||'null')||{habits:[
+{id:1,name:'Workout',icon:'🏋️',target:'45–60 min',logs:{}},
+{id:2,name:'Study',icon:'📚',target:'3+ hours',logs:{}},
+{id:3,name:'English Practice',icon:'🗣️',target:'30 min',logs:{}},
+{id:4,name:'Reading',icon:'📖',target:'20 pages',logs:{}},
+{id:5,name:'Chess',icon:'♟️',target:'30 min',logs:{}}
+], workouts:{}, weight:[{date:today(),value:52}]};
+function today(){return new Date().toISOString().slice(0,10)}
+function save(){localStorage.setItem(key,JSON.stringify(state))}
+function fmt(d){return new Date(d+'T12:00').toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'})}
+function dayComplete(d){return state.habits.filter(h=>h.logs[d]).length}
+function streak(){let n=0,d=new Date();while(true){let s=d.toISOString().slice(0,10);if(dayComplete(s)===0)break;n++;d.setDate(d.getDate()-1)}return n}
+function pct(){return Math.round(dayComplete(today())/Math.max(1,state.habits.length)*100)}
+function heatCells(){let a=[];for(let i=55;i>=0;i--){let d=new Date();d.setDate(d.getDate()-i);let s=d.toISOString().slice(0,10),n=dayComplete(s);a.push(`<div class="cell ${n>=state.habits.length?'l4':n>=3?'l3':n>=1?'l2':''}" title="${s}: ${n}/${state.habits.length}"></div>`)}return a.join('')}
+function nav(active){document.querySelectorAll('.navbtn').forEach((b,i)=>b.classList.toggle('active',['home','calendar','stats','settings'][i]===active))}
+function show(page){nav(page);if(page==='home')home();if(page==='calendar')calendar();if(page==='stats')stats();if(page==='settings')settings()}
+function home(){
+let p=pct(), s=streak(), date=fmt(today());
+document.getElementById('app').innerHTML=`<main class="app">
+<div class="top"><div><div class="brand">VIMLESH OS</div><div class="date">${date}</div></div><button class="iconbtn" onclick="resetDay()">↻</button></div>
+<div class="hero"><div class="heroCard"><div class="kicker">Personal operating system</div><div class="hello">Hi, Vimlesh.</div><div class="quote">Small actions. Repeated days. A different version of you.</div></div><div class="stat"><div class="progressWrap"><div class="ring" style="--p:${p}"><b>${p}%</b></div><div><div class="kicker">Today</div><div class="big">${dayComplete(today())}/${state.habits.length}</div><div class="muted">habits complete</div><div style="margin-top:10px">🔥 ${s} day streak</div></div></div></div></div>
+<section class="section"><div class="sectionHead"><h2>Today's routine</h2><small>${p}% complete</small></div><div class="habits">${state.habits.map(h=>`<div class="habit ${h.logs[today()]?'done':''}"><div class="habitIcon">${h.icon}</div><div class="habitMain"><div class="habitName">${esc(h.name)}</div><div class="habitMeta">${esc(h.target)}</div></div><button class="check" onclick="toggle(${h.id})">✓</button></div>`).join('')}</div></section>
+<section class="section"><div class="sectionHead"><h2>Consistency</h2><small>Last 56 days</small></div><div class="card"><div class="heat">${heatCells()}</div></div></section>
+<section class="section"><div class="sectionHead"><h2>Today's workout</h2><small>Home · 45–60 min</small></div><div class="workout"><div class="workoutTop"><div><b>Shoulders + Chest + Forearms</b><div class="muted">Thursday focus</div></div><span class="pill">${workoutCount()}/8</span></div>${workoutList().map((x,i)=>`<div class="exercise ${state.workouts[today()+i]?'done':''}"><span>${x[0]}</span><span class="muted">${x[1]}</span><button onclick="toggleEx(${i})">${state.workouts[today()+i]?'✓':'Done'}</button></div>`).join('')}</div></section>
+</main>`}
+function workoutList(){return [['Pike push-ups','4 × 6–12'],['Push-ups','4 × 8–15'],['Decline push-ups','3 × 6–12'],['Prone Y raises','3 × 12–15'],['Prone T raises','3 × 12–15'],['Wrist curls','3 × 15–20'],['Reverse wrist curls','3 × 15–20'],['Plank','3 × 30–60s']]}
+function workoutCount(){return workoutList().filter((_,i)=>state.workouts[today()+i]).length}
+function toggleEx(i){let k=today()+i;state.workouts[k]=!state.workouts[k];save();home();toast(state.workouts[k]?'Exercise completed':'Exercise unchecked')}
+function toggle(id){let h=state.habits.find(x=>x.id===id);h.logs[today()]=!h.logs[today()];save();home();toast(h.logs[today()]?'Habit completed':'Habit unchecked')}
+function calendar(){let d=new Date(),y=d.getFullYear(),m=d.getMonth(),first=new Date(y,m,1).getDay(),days=new Date(y,m+1,0).getDate();let cells='';for(let i=0;i<first;i++)cells+='<div></div>';for(let n=1;n<=days;n++){let s=`${y}-${String(m+1).padStart(2,'0')}-${String(n).padStart(2,'0')}`,c=dayComplete(s);cells+=`<div class="day ${s===today()?'today':''} ${c?'active':''}" onclick="selectDay('${s}')">${n}<small>${c}/${state.habits.length}</small></div>`}document.getElementById('app').innerHTML=`<main class="app"><div class="top"><div><div class="brand">CALENDAR</div><div class="date">${d.toLocaleDateString('en-IN',{month:'long',year:'numeric'})}</div></div></div><div class="calendar"><div class="calhead"><b>Monthly consistency</b><span class="muted">${monthScore(y,m)}%</span></div><div class="calgrid">${['S','M','T','W','T','F','S'].map(x=>`<div class="dow">${x}</div>`).join('')}${cells}</div></div><section class="section"><div class="sectionHead"><h2>Legend</h2></div><div class="card"><span class="muted">Tap any day to see completion. Green = at least one habit completed.</span></div></section></main>`}
+function monthScore(y,m){let total=0,done=0,days=new Date(y,m+1,0).getDate();for(let n=1;n<=days;n++){let s=`${y}-${String(m+1).padStart(2,'0')}-${String(n).padStart(2,'0')}`;done+=dayComplete(s);total+=state.habits.length}return Math.round(done/Math.max(1,total)*100)}
+function selectDay(s){toast(`${fmt(s)} · ${dayComplete(s)}/${state.habits.length} habits complete`)}
+function stats(){let days=30,completed=0;for(let i=0;i<days;i++){let d=new Date();d.setDate(d.getDate()-i);completed+=dayComplete(d.toISOString().slice(0,10))}let avg=Math.round(completed/(days*state.habits.length)*100);document.getElementById('app').innerHTML=`<main class="app"><div class="top"><div><div class="brand">PROGRESS</div><div class="date">Your last 30 days</div></div></div><div class="grid"><div class="card"><div class="muted">30 DAY SCORE</div><div class="big">${avg}%</div><div class="bar"><i style="width:${avg}%"></i></div></div><div class="card"><div class="muted">STREAK</div><div class="big">🔥 ${streak()}</div><div class="muted">current days</div></div><div class="card"><div class="muted">WEIGHT</div><div class="big">${state.weight.at(-1)?.value||52}</div><div class="muted">kg · baseline</div></div></div><section class="section"><div class="sectionHead"><h2>Habit performance</h2></div><div class="habits">${state.habits.map(h=>{let c=0;for(let i=0;i<30;i++){let d=new Date();d.setDate(d.getDate()-i);if(h.logs[d.toISOString().slice(0,10)])c++}let q=Math.round(c/30*100);return `<div class="card"><b>${h.icon} ${esc(h.name)}</b><div class="muted" style="margin-top:5px">${c}/30 days · ${q}%</div><div class="bar"><i style="width:${q}%"></i></div></div>`}).join('')}</div></section><section class="section"><div class="sectionHead"><h2>Bodyweight</h2><small>Target: gradual gain</small></div><div class="card"><div class="big">${state.weight.at(-1)?.value||52} kg</div><div class="muted">Add a measurement from More → Bodyweight.</div></div></section></main>`}
+function settings(){document.getElementById('app').innerHTML=`<main class="app"><div class="top"><div><div class="brand">MORE</div><div class="date">Customize your system</div></div></div><div class="habits"><div class="card"><b>⚙️ Manage habits</b><p class="muted">Create your own daily habits. Everything is stored locally on this device.</p><button class="primary" onclick="openHabit()">+ Add habit</button></div><div class="card"><b>⚖️ Bodyweight</b><p class="muted">Current: ${state.weight.at(-1)?.value||52} kg</p><input id="weight" class="input" type="number" step=".1" placeholder="e.g. 52.4"><button class="primary" onclick="addWeight()">Save measurement</button></div><div class="card"><b>🧹 Data</b><p class="muted">Export a backup or clear this device's data.</p><button class="iconbtn" onclick="exportData()">Export JSON</button> <button class="iconbtn" onclick="clearData()">Reset</button></div></div></main>`}
+function openHabit(){document.getElementById('modal').classList.add('show');document.getElementById('habitName').focus()}
+function saveHabit(){let n=document.getElementById('habitName').value.trim();if(!n)return;let icon=document.getElementById('habitIcon').value.trim()||'✓';state.habits.push({id:Date.now(),name:n,icon,target:'Daily',logs:{}});save();document.getElementById('modal').classList.remove('show');home();toast('Habit added')}
+function addWeight(){let v=parseFloat(document.getElementById('weight').value);if(!v)return;state.weight.push({date:today(),value:v});save();stats();toast('Weight saved')}
+function resetDay(){state.habits.forEach(h=>delete h.logs[today()]);save();home();toast('Today reset')}
+function exportData(){let b=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='vimlesh-os-backup.json';a.click()}
+function clearData(){if(confirm('Clear all local data?')){localStorage.removeItem(key);location.reload()}}
+function esc(s){return s.replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function toast(t){let e=document.getElementById('toast');e.textContent=t;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),1500)}
+home();
+</script>
+</body>
+</html>
