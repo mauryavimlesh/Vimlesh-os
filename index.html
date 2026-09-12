@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b0b0d">
+  <meta name="description" content="Vimlesh OS is a minimalist personal routine and habit tracker.">
+  <title>Vimlesh OS — Personal Operating System</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <div class="brand">VIMLESH OS</div>
+        <div class="date" id="todayDate"></div>
+      </div>
+      <button class="icon-btn" id="resetBtn" title="Reset today's completion">↻</button>
+    </header>
+
+    <main>
+      <section class="hero card">
+        <div class="eyebrow">PERSONAL OPERATING SYSTEM</div>
+        <h1>Hi, Vimlesh.</h1>
+        <p>Small actions. Repeated days. A different version of you.</p>
+      </section>
+
+      <section class="score-grid">
+        <div class="card score-card">
+          <div class="ring" id="progressRing"><span id="progressPct">0%</span></div>
+          <div class="score-copy">
+            <div class="eyebrow">TODAY</div>
+            <strong><span id="doneCount">0</span>/<span id="totalCount">0</span></strong>
+            <span>habits complete</span>
+            <span class="streak">🔥 <b id="streakCount">0</b> day streak</span>
+          </div>
+        </div>
+      </section>
+
+      <div id="homeRoutine">
+      <section class="section-head">
+        <h2>Today's routine</h2>
+        <span id="completeLabel">0% complete</span>
+      </section>
+      <section id="habitList" class="habit-list"></section>
+      </div>
+
+      <button class="add-fab" id="addBtn" aria-label="Add habit">+</button>
+
+      <section id="calendarView" class="view hidden">
+        <div class="section-head"><h2>Calendar</h2><span>Consistency</span></div>
+        <div class="calendar card" id="calendar"></div>
+      </section>
+
+      <section id="progressView" class="view hidden">
+        <div class="section-head"><h2>Progress</h2><span>Last 14 days</span></div>
+        <div class="card chart-card"><div id="barChart" class="bar-chart"></div></div>
+        <div class="stats-grid">
+          <div class="card stat"><span>Best streak</span><strong id="bestStreak">0</strong><small>days</small></div>
+          <div class="card stat"><span>Total completions</span><strong id="totalCompletions">0</strong><small>habits</small></div>
+        </div>
+      </section>
+
+      <section id="moreView" class="view hidden">
+        <div class="section-head"><h2>More</h2><span>Settings</span></div>
+        <div class="card settings">
+          <div><b>Vimlesh OS</b><span>Minimal routine tracker</span></div>
+          <button id="clearData">Clear all data</button>
+        </div>
+        <div class="card about">
+          <div class="eyebrow">DESIGN SYSTEM</div>
+          <p>Dark glass surfaces, technical typography, generous spacing and one electric accent. Inspired by the supplied UI references, not copied from them.</p>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="nav-btn active" data-view="home"><span>⌂</span><small>HOME</small></button>
+      <button class="nav-btn" data-view="calendar"><span>▦</span><small>CALENDAR</small></button>
+      <button class="nav-btn" data-view="progress"><span>⌁</span><small>PROGRESS</small></button>
+      <button class="nav-btn" data-view="more"><span>⚙</span><small>MORE</small></button>
+    </nav>
+  </div>
+
+  <div class="modal hidden" id="habitModal">
+    <div class="modal-card">
+      <button class="close" id="closeModal">×</button>
+      <div class="eyebrow">NEW ROUTINE</div>
+      <h2>Add a habit</h2>
+      <label>Name<input id="habitName" placeholder="e.g. Read 20 pages"></label>
+      <label>Time<input id="habitTime" placeholder="e.g. 30 min"></label>
+      <button class="primary" id="saveHabit">Add habit</button>
+    </div>
+  </div>
+
+<script src="app.js"></script>
+</body>
+</html>
